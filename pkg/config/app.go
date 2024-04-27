@@ -1,22 +1,24 @@
 package config
 
-import(
-	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
+import (
+    "github.com/jinzhu/gorm"
+    _ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
 var (
-	db * gorm.DB
+    db *gorm.DB
 )
 
-func Connect(){
-	d, err := gorm.Open("mysql", "akhil:Axlesharma@12@/simplerest?charset=utf8&parseTime=True&loc=Local")
-	if err != nil{
-		panic(err)
-	}
-	db = d
+func Connect() {
+    connectionString := "root:GfyWSXYfFXeoxtlsTRjYTQhlIQMWiLuY@tcp(monorail.proxy.rlwy.net:40118)/railway?charset=utf8&parseTime=True&loc=Local"
+
+    d, err := gorm.Open("mysql", connectionString)
+    if err != nil {
+        panic(err)
+    }
+    db = d
 }
 
-func GetDB() *gorm.DB{
-	return db
+func GetDB() *gorm.DB {
+    return db
 }
