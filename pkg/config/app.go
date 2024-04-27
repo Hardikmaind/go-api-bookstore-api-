@@ -9,7 +9,13 @@ var (
     db *gorm.DB
 )
 
+
+
+
 func Connect() {
+
+    // here i have used the database of the railway. which is deployed
+
     connectionString := "root:GfyWSXYfFXeoxtlsTRjYTQhlIQMWiLuY@tcp(monorail.proxy.rlwy.net:40118)/railway?charset=utf8&parseTime=True&loc=Local"
 
     d, err := gorm.Open("mysql", connectionString)
